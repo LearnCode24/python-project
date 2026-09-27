@@ -1,8 +1,9 @@
 import time
 import os
-time_=float(input("Enter time : "))
+time_=float(input("Enter time you wanna count : "))
 unit=input("Enter time is in minutes or seconds?(min/sec) :").lower()
-while True:
+is_running=True
+while is_running:
     if unit=="min":
         time_in_sec=time_*60
         for x in range(int(time_in_sec),0,-1):
@@ -13,6 +14,7 @@ while True:
             print(f"{hour:02}:{minutes:02}:{second:02}")
             time.sleep(1)
         print("Time's up!")
+        is_running=False
     elif unit=="sec":
         time_=int(time_)
         for x in range(time_,0,-1):
@@ -23,10 +25,11 @@ while True:
             print(f"{hour:02}:{minutes:02}:{second:02}")
             time.sleep(1)
         print("Time's up!")
+        is_running=False
     else:
         print("INVALID INPUT")
         print("Exiting..")
-        break
+        is_running=False
 
 
 
